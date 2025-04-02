@@ -72,63 +72,6 @@ cat arquivo.txt | grep "palavra"
 
 # Questão
 
-## Avanços na Eficiência do Chaveamento de Contexto
+Ao longo das décadas, o chaveamento de contexto passou por significativas otimizações para reduzir seu impacto no desempenho dos sistemas. Nas primeiras implementações, esse processo era extremamente custoso, exigindo a cópia completa de todos os registradores e estados do processador para a memória principal. Com os avanços na arquitetura de hardware, surgiram registradores dedicados para troca de contexto e mecanismos de cache especializados, que armazenam temporariamente os estados dos processos, minimizando os acessos à RAM e acelerando consideravelmente as operações de chaveamento.
 
-Historicamente, a operação de troca de contexto representava um gargalo significativo nos sistemas operacionais, demandando consideráveis recursos computacionais. Esse processo exigia:
-
-- Transferência completa do conteúdo dos registradores
-- Armazenamento do estado do processador na memória principal
-- Operações intensivas de I/O entre CPU e RAM
-
-## Inovações em Arquitetura de Hardware
-
-As modernas arquiteturas de processadores introduziram melhorias cruciais:
-
-1. **Registradores Especializados**:
-   - Conjuntos dedicados para armazenamento de contexto
-   - Acesso rápido ao estado dos processos
-
-2. **Hierarquia de Memória Avançada**:
-   - Caches L1/L2 para estados de processo
-   - Redução de acessos à memória principal
-   - Buffers de transição otimizados
-
-3. **Técnicas de Paralelismo**:
-   - Hyper-Threading para execução simultânea
-   - SMT (Simultaneous Multi-Threading)
-   - Núcleos físicos virtuais
-
-## Aprimoramentos em Algoritmos de Escalonamento
-
-Os modernos sistemas implementam:
-
-- **Heurísticas Inteligentes**:
-  - Análise de padrões de execução
-  - Previsão de necessidade de troca
-
-- **Vinculação a Núcleos (CPU Affinity)**:
-  - Associação estática de processos
-  - Minimização de migração entre núcleos
-  - Redução de invalidamento de cache
-
-- **Balanceamento Dinâmico**:
-  - Distribuição adaptativa de carga
-  - Consideração de afinidade
-
-## Impacto no Desempenho do Sistema
-
-Estas otimizações proporcionaram:
-
-- Redução de 60-80% no overhead de troca
-- Melhoria de 30-50% no throughput do sistema
-- Latência reduzida para aplicações críticas
-- Eficiência energética aprimorada
-
-## Aplicações em Ambientes Modernos
-
-Particularmente benéfico para:
-
-- Sistemas de tempo real
-- Ambientes virtualizados
-- Computação de alto desempenho (HPC)
-- Nuvens computacionais
+Paralelamente, melhorias nos algoritmos de escalonamento contribuíram para reduzir trocas desnecessárias, como a implementação de heurísticas inteligentes de escalonamento e técnicas de CPU affinity, que mantêm processos relacionados executando no mesmo núcleo do processador. Tecnologias como Hyper-Threading e SMT (Simultaneous Multithreading) permitiram que um único núcleo físico gerencie múltiplas threads de forma mais eficiente, diminuindo a necessidade de chaveamentos completos de contexto. Esses avanços tornaram os sistemas operacionais modernos mais eficientes no gerenciamento de multitarefa, especialmente em ambientes que demandam alto desempenho e baixa latência.
