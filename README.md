@@ -2,7 +2,7 @@
 
 ## Trabalho baseado no livro "Sistemas Operacionais" – Deitel
 
-### 1- Troca de Contexto (Context Switching)
+### 1- Chaveamento de Contexto (Context Switching)
 
 A troca de contexto é um mecanismo essencial em sistemas operacionais multitarefa, permitindo que a CPU alterne entre diferentes processos em execução. Como um único núcleo de processador executa apenas uma tarefa por vez, o sistema operacional gerencia essa alternância de forma eficiente.
 
@@ -37,7 +37,7 @@ Interrupções são sinais que interrompem temporariamente a execução normal d
 
 ---
 
-### 3- Mecanismos de Comunicação entre Processos
+### 3- Comunicação Interprocessos
 
 Em diversos cenários, processos precisam trocar informações ou coordenar suas ações. Os principais métodos utilizados incluem:
 
@@ -65,21 +65,70 @@ Nos sistemas baseados em UNIX, os processos são unidades fundamentais de execu�
 
 #### Exemplo de Comunicação entre Processos:
 ```bash
-cat arquivo.txt | grep "palavra"  # A saída de `cat` é direcionada como entrada para `grep`
+cat arquivo.txt | grep "palavra"  
 ```
 
 ---
 
-### Evolução da Troca de Contexto
+# Questão
 
-Historicamente, a latência na troca de contexto foi um grande desafio para o desempenho dos sistemas. Algumas otimizações foram implementadas para reduzir esse impacto:
+## Avanços na Eficiência do Chaveamento de Contexto
 
-- **Registradores dedicados**: Facilitam o armazenamento e a recuperação de estados.
-- **Cache de contexto**: Diminui a necessidade de acessos frequentes à RAM.
+Historicamente, a operação de troca de contexto representava um gargalo significativo nos sistemas operacionais, demandando consideráveis recursos computacionais. Esse processo exigia:
 
-#### Otimizações de Escalonamento:
+- Transferência completa do conteúdo dos registradores
+- Armazenamento do estado do processador na memória principal
+- Operações intensivas de I/O entre CPU e RAM
 
-- **CPU Affinity**: Mantém processos críticos no mesmo núcleo, reduzindo o overhead de migração entre núcleos.
-- **Hyper-Threading/SMT**: Permite a execução paralela de múltiplas threads em um único núcleo físico.
+## Inovações em Arquitetura de Hardware
 
-Essas técnicas ajudam a minimizar o tempo gasto na alternância de processos, aprimorando o desempenho geral dos sistemas operacionais multitarefa, especialmente em ambientes como servidores e estações de trabalho.
+As modernas arquiteturas de processadores introduziram melhorias cruciais:
+
+1. **Registradores Especializados**:
+   - Conjuntos dedicados para armazenamento de contexto
+   - Acesso rápido ao estado dos processos
+
+2. **Hierarquia de Memória Avançada**:
+   - Caches L1/L2 para estados de processo
+   - Redução de acessos à memória principal
+   - Buffers de transição otimizados
+
+3. **Técnicas de Paralelismo**:
+   - Hyper-Threading para execução simultânea
+   - SMT (Simultaneous Multi-Threading)
+   - Núcleos físicos virtuais
+
+## Aprimoramentos em Algoritmos de Escalonamento
+
+Os modernos sistemas implementam:
+
+- **Heurísticas Inteligentes**:
+  - Análise de padrões de execução
+  - Previsão de necessidade de troca
+
+- **Vinculação a Núcleos (CPU Affinity)**:
+  - Associação estática de processos
+  - Minimização de migração entre núcleos
+  - Redução de invalidamento de cache
+
+- **Balanceamento Dinâmico**:
+  - Distribuição adaptativa de carga
+  - Consideração de afinidade
+
+## Impacto no Desempenho do Sistema
+
+Estas otimizações proporcionaram:
+
+- Redução de 60-80% no overhead de troca
+- Melhoria de 30-50% no throughput do sistema
+- Latência reduzida para aplicações críticas
+- Eficiência energética aprimorada
+
+## Aplicações em Ambientes Modernos
+
+Particularmente benéfico para:
+
+- Sistemas de tempo real
+- Ambientes virtualizados
+- Computação de alto desempenho (HPC)
+- Nuvens computacionais
