@@ -63,11 +63,6 @@ Nos sistemas baseados em UNIX, os processos são unidades fundamentais de execu�
 - `kill -9 PID`: Finaliza um processo de maneira forçada.
 - `top`: Exibe informações em tempo real sobre o uso de recursos pelos processos.
 
-#### Exemplo de Comunicação entre Processos:
-```bash
-cat arquivo.txt | grep "palavra"  
-```
-
 ---
 
 # Mapa Mental
