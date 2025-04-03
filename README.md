@@ -71,7 +71,7 @@ cat arquivo.txt | grep "palavra"
 ---
 
 # Mapa Mental
-<p> <img alt="Web" src="https://github.com/eumorales/TrabalhoSO/blob/main/Mapa.jpg" /></p>
+<p> <img alt="Web" src="https://github.com/eumorales/TrabalhoSO/blob/main/Mapa%20Mental.jpg" /></p>
 
 # Questão
 
