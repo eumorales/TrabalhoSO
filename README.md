@@ -1,8 +1,8 @@
-# Sistemas Operacionais
+# Trabalho - Sistemas Operacionais
 
 ## Trabalho baseado no livro "Sistemas Operacionais" – Deitel
 
-### 1- Chaveamento de Contexto (Context Switching)
+### 1- Chaveamento de Contexto 
 
 A troca de contexto é um mecanismo essencial em sistemas operacionais multitarefa, permitindo que a CPU alterne entre diferentes processos em execução. Como um único núcleo de processador executa apenas uma tarefa por vez, o sistema operacional gerencia essa alternância de forma eficiente.
 
@@ -69,6 +69,9 @@ cat arquivo.txt | grep "palavra"
 ```
 
 ---
+
+# Mapa Mental
+
 
 # Questão
 
